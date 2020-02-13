@@ -1,0 +1,21 @@
+{
+  "name": "photo.ap",
+  "version": "1.0.0",
+  "description": "Antoine Paul - Photographer website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "deploy": "npm run build && npm run export"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "next": "^9.2.1",
+    "node-sass": "^4.13.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "typed.js": "^2.0.11"
+  }
+}
