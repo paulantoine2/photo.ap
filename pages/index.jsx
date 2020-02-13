@@ -11,15 +11,15 @@ export default class Index extends React.Component {
         <section>
           <h1>
           <TypedTitle strings={[
-            'Web development, made with love.',
-            'Web development, made with passion.',
-            'Web development, made with love.',
-            'Web development, made with passion.',
-            'Web development, made with love.',
+            'Photography, made with love.',
+            'Photography, made with passion.',
+            'Photography, made with love.',
+            'Photography, made with passion.',
+            'Photography, made with love.',
           ]} />
           </h1>
-          <h2>Front end / Javascript / Motion design integration</h2>
-          <p>Website opening soon !</p>
+          <h2>Brand content / Portrait</h2>
+          <p>Creating creative digital content for companies, individuals, non profits and everyone who wants their story to be told in a unique, emotional and magical way.</p>
         </section>
       </div>
     );
