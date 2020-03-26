@@ -1,13 +1,13 @@
 .ShopCard {
   width: 350px;
-  // max-width: calc((100vw - 70px) / 2);
+  // max-width: calc((100vw - 90px) / 2);
   max-width: 100%;
   cursor: pointer;
   &__image-wrapper {
     width: 350px;
     height: 350px;
     max-height: calc(100vw - 60px);
-    // max-height: calc((100vw - 70px) / 2);
+    // max-height: calc((100vw - 90px) / 2);
     max-width: 100%;
     position: relative;
   }

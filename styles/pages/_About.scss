@@ -1,0 +1,22 @@
+.AboutMe, .Contact {
+  @include mq(600px, min) {
+    margin: 100px auto;
+  }
+  margin-bottom: 50px;
+  img {
+    object-fit: cover;
+    max-height: 400px;
+    @include mq(600px, max) {
+      height: 200px;
+      margin: 30px 0;
+    }
+  }
+  .typography__headline {
+    margin-bottom: 30px;
+  }
+}
+.Contact {
+  .typography__body {
+    margin: 10px 0;
+  }  
+}

@@ -1,0 +1,120 @@
+.Home {
+  &__hero {
+    @include mq(600px, min) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    .typography__subhead {
+      line-height: 1.5;
+      margin-top: 20px;
+    }
+  }
+  &__portfolio {
+    position: relative;
+    .Card {
+      height: 200px;
+      width: 100%;
+      margin-bottom: 30px;
+      max-width: none;
+      @include mq(600px, max) {
+        &--tall {
+          height: auto;
+        }
+        &--intro {
+          margin: 0 -3em 3em -3em;
+          width: calc(100% + 6em);
+          .Card__title {
+            opacity: 0;
+          }
+        }
+      }
+    }
+    @include mq(600px, min) {
+      max-width: 100%;
+      padding: 0;
+      .cards-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-bottom: 50px;
+        > .react-reveal {
+          max-width: 25%;
+        }
+      }
+      .Card {
+        width: 25%;
+        height: 25vw;
+      }
+    }
+  }
+  &__shop {
+    margin-top: 50px;
+    margin: 100px auto;
+  }
+  &__about {
+    margin: 150px auto;
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 30px;
+      @include mq(600px, min) {
+        width: 300px;
+        height: auto;
+        margin-right: 100px;
+      }
+    }
+    .typography__body {
+      margin: 30px 0;
+    }
+  }
+  &__instagram {
+    padding: 0;
+    max-width: none;
+    // background-color: $main;
+    h2 {
+      text-align: center;
+      // color: #fff;
+    }
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 50px 0;
+      img {
+        width: 40vw;
+        height: 40vw;
+        @include mq(600px, min) {
+          width: 200px;
+          height: 200px;
+        }
+        object-fit: cover;
+        margin: 10px;
+      }
+    }
+  }
+  &__instagram, &__about {
+    margin: 150px auto;
+    @include mq(600px, max) {
+      margin: 50px auto;
+    }
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  &-top {
+    @include mq(600px, min) {
+      display: none;
+    }
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    .Button {
+      width: 60%;
+    }
+  }
+}

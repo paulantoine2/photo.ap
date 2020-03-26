@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Menu from './Menu';
+import Fonts from '../helpers/Fonts';
 import { MdClose, MdMenu } from 'react-icons/md';
 import classnames from 'classnames';
-import { FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaTwitter, FaYoutube, FaLinkedin } from 'react-icons/fa';
 
 export default class Layout extends Component {
   constructor(props) {
@@ -11,6 +12,9 @@ export default class Layout extends Component {
     this.state = {
        menuOpen: false
     }
+  }
+  componentDidMount() {
+    Fonts();
   }
   
   toggleMenu() {
@@ -21,7 +25,10 @@ export default class Layout extends Component {
     return (
       <div>
         <header>
-          <img src='/logo.svg' alt="logo"/>
+          <a href="/" className="Logo__full">
+            <img src='/logo.svg' alt="logo"/>
+            <span>PHOTO</span>
+          </a>
           <button className={classnames('Menu__button', {'Menu__button--open': menuOpen})} onClick={() => this.toggleMenu()}>
             { menuOpen ? <MdClose /> : <MdMenu />}
           </button>
@@ -35,9 +42,11 @@ export default class Layout extends Component {
           <div className="Footer__links">
             <a href="/"><FaInstagram /></a>
             <a href="/"><FaTwitter /></a>
+            <a href="/"><FaYoutube /></a>
+            <a href="/"><FaLinkedin /></a>
           </div>
           <div className="Footer__sub">
-            Design and Development by Paul ANTOINE
+            Design and Development by Paul ANTOINE | © antoine-paul.com 2020 | Conditions
           </div>
         </footer>
       </div>

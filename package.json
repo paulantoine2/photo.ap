@@ -12,15 +12,21 @@
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "fontfaceobserver": "^2.1.0",
+    "lodash": "^4.17.15",
     "next": "^9.2.1",
     "node-sass": "^4.13.1",
+    "prismic-javascript": "^2.1.5",
+    "prismic-reactjs": "^1.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-icons": "^3.9.0",
+    "react-masonry-css": "^1.0.14",
     "react-reveal": "^1.2.2",
     "smoothscroll-polyfill": "^0.4.4",
-    "typed.js": "^2.0.11"
+    "typed.js": "^2.0.11",
+    "user-instagram": "^1.0.4"
   }
 }

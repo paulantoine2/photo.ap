@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './_shop-card.scss';
 
 export default class ShopCard extends Component {
   render() {

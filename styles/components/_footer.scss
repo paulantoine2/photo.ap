@@ -1,0 +1,22 @@
+.Footer {
+  text-align: center;
+  padding: 20px;
+  &__title {
+    text-decoration: none;
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      height: 50px;
+    }
+  }
+  &__sub, &__title {
+    font-size: 1.4em;
+  }
+  &__links {
+    margin: 20px 0;
+    a {
+      font-size: 3em;
+      margin: 0 20px;
+    }
+  }
+}
