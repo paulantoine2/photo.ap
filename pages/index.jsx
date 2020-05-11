@@ -43,6 +43,7 @@ export default class Index extends React.Component {
     fetch('https://graph.instagram.com/me/media?fields=media_url&access_token=' + token)
       .then(response => response.json())
       .then(medias => {
+        if (medias.error) return;
         this.setState(state => ({ ...state, medias: medias.data.map(o => o.media_url).slice(0, 6) }));
       });
     window.addEventListener('scroll', this.handleScroll);
@@ -81,8 +82,8 @@ export default class Index extends React.Component {
             <div className="cards-wrapper">
               {
                 this.props.work.map((work, i) => {
-                  if (i === 0) return <Card href="/work/event" img={work.picture} title={RichText.asText(work.title)} className={`Card--tall ${this.state.scroll ? '' : 'Card--intro'}`} />
-                  return <Card href="/work/event" img={work.picture} title={RichText.asText(work.title)} />
+                  if (i === 0) return <Card href={'/work/' + work.id } img={work.picture} title={RichText.asText(work.title)} className={`Card--tall ${this.state.scroll ? '' : 'Card--intro'}`} />
+                  return <Card href={'/work/' + work.id } img={work.picture} title={RichText.asText(work.title)} />
                 })
               }
             </div>

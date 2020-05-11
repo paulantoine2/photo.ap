@@ -27,5 +27,33 @@
   }
   &__masonry {
     max-width: none;
+    .typography__eyebrow {
+      margin-bottom: 30px;
+    }
+  }
+}
+.Collection {
+  &__container {
+    img {
+      transition: all .3s ease;
+      transform: translateX(0);
+      cursor: pointer;
+      @include mq(600px, min) {
+        &:not(.expand):hover {
+          transform: scale(1.05);
+        }
+      }
+      &.expand {
+        top: 10px!important;
+        height: calc(100vh - 20px)!important;
+        left: 50%!important;
+        transform: translateX(-50%);
+      }
+      &.fixed {
+        position: fixed;
+        width: auto;
+        z-index: 1000;
+      }
+    }
   }
 }

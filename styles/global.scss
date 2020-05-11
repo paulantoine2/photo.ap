@@ -16,3 +16,15 @@
 @import './pages/Home';
 @import './pages/Work';
 @import './pages/About';
+
+#blackout {
+  background-color: #000;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: opacity .3s ease;
+  z-index: -1;
+}

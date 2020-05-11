@@ -16,15 +16,12 @@ export default class Work extends Component {
     const work_data = await Client(req).query(
       Predicates.at('document.type', 'work_category')
     );
-
-    
-    const work = map(work_data.results, w => w.data)
+    const work = map(work_data.results, w => ({ ...w.data, uid: w.uid }))
     return {
       work
     }
   }
   render() {
-    console.warn(this.props.work);
     return (
       <Layout>
         <Fade>
@@ -35,7 +32,7 @@ export default class Work extends Component {
           <section className="Work__cards">
             {
               this.props.work.map((work, i) => {
-                return <Card href="/work/event" img={work.picture} title={RichText.asText(work.title)} sub_title={RichText.asText(work.subtitle)} />
+                return <Card href={'/work/' + work.uid } img={work.picture} title={RichText.asText(work.title)} sub_title={RichText.asText(work.subtitle)} />
               })
             }
           </section>
