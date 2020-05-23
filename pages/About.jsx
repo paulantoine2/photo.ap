@@ -7,7 +7,7 @@ import Contact from "../components/Contact";
 import Hero from "../components/Hero";
 
 const hero_img = {
-  url: "./about.jpeg",
+  url: "./about.jpg",
   alt: "Event",
 };
 
