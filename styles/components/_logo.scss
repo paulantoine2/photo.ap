@@ -1,7 +1,7 @@
 .Logo {
   &__full {
     img {
-      height: 80px;
+      filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.1));
     }
     @include mq(600px, min) {
       font-size: 2em;
@@ -18,4 +18,12 @@
       margin-left: 1em;
     }
   }
+}
+.TopLogo {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 5000;
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.1));
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-.AboutMe, .Contact {
+.AboutMe {
   @include mq(600px, min) {
     margin: 100px auto;
   }
@@ -14,9 +14,4 @@
   .typography__headline {
     margin-bottom: 30px;
   }
-}
-.Contact {
-  .typography__body {
-    margin: 10px 0;
-  }  
 }

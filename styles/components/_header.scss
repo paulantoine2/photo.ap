@@ -1,0 +1,23 @@
+header {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5em 1em;
+  display: flex;
+  img {
+    height: 80px;
+    transition: all 0.2s ease;
+  }
+  position: fixed;
+  top: 0;
+  z-index: 5000;
+  transition: all 0.3s ease;
+}
+.scroll header {
+  .Button {
+    background-color: $main;
+    border-color: transparent;
+  }
+  img {
+    filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.3));
+  }
+}

@@ -1,21 +1,27 @@
-@import './utils/colors';
-@import './utils/mixins';
-@import './utils/normalize';
-@import './utils/typography';
-@import '../node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Raleway:wght@800&display=swap");
 
-@import './components/layout';
-@import './components/footer';
-@import './components/masonry';
-@import './components/button';
-@import './components/card';
-@import './components/menu';
-@import './components/shop-card';
-@import './components/logo';
+@import "./utils/colors";
+@import "./utils/mixins";
+@import "./utils/normalize";
+@import "./utils/typography";
+@import "../node_modules/bootstrap/scss/bootstrap-grid.scss";
 
-@import './pages/Home';
-@import './pages/Work';
-@import './pages/About';
+@import "./components/layout";
+@import "./components/footer";
+@import "./components/header";
+@import "./components/masonry";
+@import "./components/button";
+@import "./components/card";
+@import "./components/menu";
+@import "./components/shop-card";
+@import "./components/logo";
+@import "./components/project-item";
+@import "./components/contact";
+
+@import "./pages/Home";
+@import "./pages/Work";
+@import "./pages/About";
 
 #blackout {
   background-color: #000;
@@ -25,6 +31,21 @@
   right: 0;
   top: 0;
   bottom: 0;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
   z-index: -1;
+}
+
+.glow {
+  background-color: $gray;
+  color: $gray;
+  animation: glow infinite alternate 1s ease-in-out;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 0.7;
+  }
 }

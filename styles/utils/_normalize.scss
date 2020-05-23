@@ -1,10 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-font-smoothing : antialiased;
-  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Merriweather", Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   line-height: 1;
+  list-style: none;
 }
 img {
   display: block;
@@ -16,23 +17,12 @@ body {
   background-color: $white;
   color: $main;
 }
-header {
-  max-width: 1170px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1.5em 1em;
-  display: flex;
-  justify-content: center;
-  img {
-    height: 80px;
-  }
-}
 a {
   text-decoration: none;
   color: inherit;
 }
 section {
-  max-width: 1170px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
   padding: 0 3em;
