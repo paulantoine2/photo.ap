@@ -8,6 +8,7 @@ import Error from "next/error";
 export default class ProjectPage extends React.Component {
   static async getInitialProps({ req, res, query }) {
     const { id } = query;
+    if (!req || !id) return {};
     const project = await Client(req).getByID(id);
     if (!project) res.statusCode = 404;
     return {
@@ -23,8 +24,8 @@ export default class ProjectPage extends React.Component {
         <Hero project={project.data} className="Project__hero" />
         <section className="Project">
           <Fade>
-            {project.data.pictures.map((p) => (
-              <div className="block-img">
+            {project.data.pictures.map((p, i) => (
+              <div className="block-img" key={i}>
                 <img src={p.picture.url} alt={p.picture.alt} />
               </div>
             ))}
