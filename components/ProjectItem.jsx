@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Button from "./Button";
 import { RichText } from "prismic-reactjs";
 import Link from "next/link";
-import { FaDeviantart } from "react-icons/fa";
 
 export default function ProjectItem({ project, fake }) {
   const [showImg, setshowImg] = useState(false);

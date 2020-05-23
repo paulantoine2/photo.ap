@@ -3,7 +3,7 @@ import Menu from "./Menu";
 import Fonts from "../helpers/Fonts";
 import { MdClose, MdMenu } from "react-icons/md";
 import classnames from "classnames";
-import { FaInstagram, FaTwitter, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import Button from "./Button";
 import Link from "next/link";
 

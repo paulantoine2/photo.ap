@@ -1,20 +1,10 @@
 import React from "react";
-import Card from "../components/Card";
 import Button from "../components/Button";
 import Layout from "../components/Layout";
-import {
-  FaCaretDown,
-  FaPlus,
-  FaTimes,
-  FaInstagram,
-  FaMagic,
-} from "react-icons/fa";
-import { FiPlus, FiX } from "react-icons/fi";
-import { MdFilterNone } from "react-icons/md";
+import { FaInstagram, FaMagic } from "react-icons/fa";
 import { Client } from "../prismic-configuration";
 import { Predicates } from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
-import { chain } from "lodash";
 
 import Fade from "react-reveal/Fade";
 import ProjectItem from "../components/ProjectItem";

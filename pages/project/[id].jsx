@@ -1,5 +1,4 @@
 import React from "react";
-import { RichText } from "prismic-reactjs";
 import { Client } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
 import Fade from "react-reveal/Fade";

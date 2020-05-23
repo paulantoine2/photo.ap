@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { Client } from "../prismic-configuration";
 import { Predicates } from "prismic-javascript";
-import { RichText } from "prismic-reactjs";
 import Layout from "../components/Layout";
 import cn from "classnames";
 import Fade from "react-reveal/Fade";
-import Card from "../components/Card";
 import { map, isArray } from "lodash";
 import ProjectItem from "../components/ProjectItem";
 import Contact from "../components/Contact";
-import { FaCross, FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import Hero from "../components/Hero";
 
 const hero_img = {
