@@ -1,6 +1,8 @@
 .Footer {
   text-align: center;
-  padding: 20px;
+  padding: 40px;
+  background-color: $main;
+  color: $white;
   &__title {
     text-decoration: none;
     img {
@@ -9,14 +11,14 @@
       height: 50px;
     }
   }
-  &__sub, &__title {
-    font-size: 1.4em;
-  }
   &__links {
     margin: 20px 0;
     a {
       font-size: 3em;
       margin: 0 20px;
     }
+  }
+  .typography__body {
+    color: $white;
   }
 }

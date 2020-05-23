@@ -1,9 +1,11 @@
 .Card {
+  background-color: #000;
   img {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    transition: transform .3s ease;
+    transition: all .3s ease;
+    opacity: 0.8;
   }
   // border-radius: 14px;
   display: block;
@@ -26,10 +28,11 @@
   }
   &:hover {
     .Card__title {
-      opacity: 1;
+      opacity: 0;
     }
     img {
       transform: scale(1.05);
+      opacity: 1;
     }
   }
 }
@@ -55,7 +58,6 @@
   // font-weight: 900;
   // letter-spacing: 2px;
   transition: opacity .3s ease;
-  opacity: 0.5;
   @include mq(600px, max) {
     opacity: 1;
   }

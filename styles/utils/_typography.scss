@@ -1,42 +1,68 @@
 .typography {
   &__headline {
-    font-size: 5.6em;
-    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 2.4em;
+    letter-spacing: 5px;
     color: $main;
+    margin-bottom: 20px;
+    font-weight: 400;
+    z-index: 1;
     @include mq(600px, max) {
-      font-size:4.2em;
+      font-size: 2em;
     }
     &__elevated {
-      font-size: 6.4em;
-      font-weight: 600;
+      font-size: 5.3em;
+
+      font-family: "Raleway";
+      font-weight: 900;
       @include mq(600px, max) {
-        font-size:5.1em;
+        font-size: 3.5em;
       }
       color: $main;
+    }
+    + hr {
+      margin-top: -35px;
+      margin-bottom: 50px;
+      border-top: solid 1px $main;
+      border-bottom: none;
+      width: 100%;
     }
   }
   &__subhead {
     font-size: 2.4em;
     line-height: 1.5;
     margin-top: 20px;
+    letter-spacing: 1px;
     @include mq(600px, max) {
-      font-size:1.8em;
+      font-size: 1.8em;
     }
-    font-weight: 400;
   }
-  &__eyebrow {
+  &__title {
     font-size: 2.4em;
     @include mq(600px, max) {
-      font-size:1.8em;
+      font-size: 2em;
     }
-    font-weight: 600;
-    color: $main;
+  }
+  &__eyebrow {
+    font-size: 1.6em;
+    font-family: "Raleway";
+    text-transform: uppercase;
+    font-weight: 900;
+    color: $gray;
+    letter-spacing: 5px;
+    @include mq(600px, max) {
+      font-size: 1.4em;
+    }
   }
   &__body {
     font-size: 1.4em;
     color: $dark;
+    font-weight: 400;
     > * {
       line-height: 2;
+    }
+    @include mq(600px, max) {
+      font-size: 1.4em;
     }
     &__elevated {
       font-size: 1.6em;

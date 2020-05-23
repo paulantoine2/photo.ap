@@ -1,26 +1,23 @@
 .Button {
-  background-color: $primary;
-  display: block;
+  background-color: $main;
+  display: inline-block;
   // width: 100%;
   appearance: none;
   border: none;
-  border-radius: 10px;
-  font-size: 1.3em;
+  border-radius: 50px;
+  font-size: 1.4em;
   color: $white;
-  font-family: 'Poppins';
+  font-family: "Raleway";
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 900;
   letter-spacing: 2px;
-  height: 40px;
+  height: 42px;
   vertical-align: middle;
   padding: 0 2em;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   -webkit-appearance: none;
-  outline:none;
+  outline: none;
   cursor: pointer;
-  &:hover {
-    opacity: 0.75;
-  }
   svg {
     margin-right: 10px;
     width: 25px;
