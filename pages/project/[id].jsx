@@ -12,13 +12,14 @@ export default function ProjectPage({ project }) {
     <Layout>
       <Hero project={project.data} className="Project__hero" />
       <section className="Project">
-        <Fade>
-          {project.data.pictures.map((p, i) => (
-            <div className="block-img" key={i}>
-              <img src={p.picture.url} alt={p.picture.alt} />
-            </div>
+        {project.data.pictures &&
+          project.data.pictures.map((p, i) => (
+            <Fade key={i}>
+              <div className="block-img">
+                <img src={p.picture.url} alt={p.picture.alt} />
+              </div>
+            </Fade>
           ))}
-        </Fade>
       </section>
     </Layout>
   );
