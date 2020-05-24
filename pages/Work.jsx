@@ -37,7 +37,7 @@ export default class Work extends Component {
   render() {
     let items = this.state.work.map((p, index) => (
       <Fade key={p.id}>
-        <ProjectItem project={p} />
+        <ProjectItem project={{ ...p.data, id: p.id }} />
       </Fade>
     ));
     if (isArray(items) && !items.length) items = null;
