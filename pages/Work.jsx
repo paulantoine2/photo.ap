@@ -23,7 +23,7 @@ export default class Work extends Component {
   filterData = async (filter) => {
     const activeFilter = this.state.activeFilter === filter ? null : filter;
     let work = this.props.projects;
-    if (filter)
+    if (activeFilter)
       work = this.props.projects.filter((w) => w.data.category === filter);
     this.setState({
       activeFilter,
@@ -62,7 +62,7 @@ export default class Work extends Component {
                     className={cn("typography__eyebrow", {
                       active: this.state.activeFilter === c,
                     })}
-                    onClick={() => this.loadData(c)}
+                    onClick={() => this.filterData(c)}
                     key={i}
                   >
                     {c} <FaTimes />
