@@ -20,19 +20,22 @@ export default function ProjectItem({ project, fake }) {
     <Link href={"/project/" + project.id}>
       <div className="row ProjectItem">
         <div className="col-12 col-sm-6">
-          {project.image && project.image.card && (
-            <img src={project.image.card.url} alt={project.image.card.alt} />
+          {project.data.image && project.data.image.card && (
+            <img
+              src={project.data.image.card.url}
+              alt={project.data.image.card.alt}
+            />
           )}
         </div>
         <div className="col-12 col-sm-6">
           <div className="typography__eyebrow">
-            {RichText.asText(project.eyebrow)}
+            {RichText.asText(project.data.eyebrow)}
           </div>
           <div className="typography__title">
-            {RichText.asText(project.title)}
+            {RichText.asText(project.data.title)}
           </div>
           <div className="typography__body">
-            {RichText.render(project.body)}
+            {RichText.render(project.data.body)}
           </div>
         </div>
       </div>
