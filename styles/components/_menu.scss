@@ -38,6 +38,7 @@
     transition-delay: 0.3s, 0.3s, 0s;
     display: inline-block;
     opacity: 0;
+    cursor: pointer;
     &:hover {
       color: $primary;
     }

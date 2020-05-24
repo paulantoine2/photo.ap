@@ -17,8 +17,8 @@ export default function ProjectItem({ project, fake }) {
       </div>
     );
   return (
-    <Link href={"/project/" + project.id}>
-      <div className="row ProjectItem">
+    <Link href="/project/[id]" as={"/project/" + project.id}>
+      <a className="row ProjectItem">
         <div className="col-12 col-sm-6">
           {project.image && project.image.card && (
             <img src={project.image.card.url} alt={project.image.card.alt} />
@@ -35,7 +35,7 @@ export default function ProjectItem({ project, fake }) {
             {RichText.render(project.body)}
           </div>
         </div>
-      </div>
+      </a>
     </Link>
   );
 }

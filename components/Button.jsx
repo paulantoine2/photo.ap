@@ -1,23 +1,50 @@
 import classnames from "classnames";
 import Link from "next/link";
 
-export default function Button(props) {
-  const button = (
-    <button
-      id={props.id}
-      className={classnames(
-        "Button",
-        props.className,
-        props.type ? "Button--" + props.type : ""
-      )}
-      onClick={props.onClick}
+export default function Button({
+  id,
+  className,
+  type,
+  onClick,
+  href,
+  children,
+}) {
+  if (onClick)
+    return (
+      <button
+        id={id}
+        className={classnames(
+          "Button",
+          className,
+          type ? "Button--" + type : ""
+        )}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    );
+  if (href && !href.startsWith("http"))
+    return (
+      <Link href={href}>
+        <a
+          id={id}
+          className={classnames(
+            "Button",
+            className,
+            type ? "Button--" + type : ""
+          )}
+        >
+          {children}
+        </a>
+      </Link>
+    );
+  return (
+    <a
+      id={id}
+      className={classnames("Button", className, type ? "Button--" + type : "")}
+      href={href}
     >
-      {props.children}
-    </button>
+      {children}
+    </a>
   );
-  if (props.href && !props.href.startsWith("http"))
-    return <Link href={props.href}>{button}</Link>;
-  if (props.href && props.href.startsWith("http"))
-    return <a href={props.href}>{button}</a>;
-  return button;
 }
