@@ -17,44 +17,29 @@ const hero_img = {
 
 export default class Work extends Component {
   state = {
-    loading: true,
     work: [],
     activeFilter: null,
   };
-  loadData = async (filter) => {
+  filterData = async (filter) => {
     const activeFilter = this.state.activeFilter === filter ? null : filter;
-    this.setState({ loading: true, activeFilter });
-    const work_data = await Client().query(
-      activeFilter
-        ? Predicates.at("my.project.category", filter)
-        : Predicates.at("document.type", "project")
-    );
-    console.log("work_data :>> ", work_data);
+    let work = this.props.projects;
+    if (filter)
+      work = this.props.projects.filter((w) => w.data.category === filter);
     this.setState({
-      work: map(work_data.results, (w) => ({ ...w.data, id: w.id })),
-      loading: false,
+      activeFilter,
+      work,
     });
   };
   componentDidMount() {
-    this.loadData();
+    this.filterData(null);
   }
 
   render() {
-    let items = this.state.loading ? (
-      <>
-        <ProjectItem fake />
-        <ProjectItem fake />
-        <ProjectItem fake />
-        <ProjectItem fake />
-        <ProjectItem fake />
-      </>
-    ) : (
-      this.state.work.map((p, index) => (
-        <Fade>
-          <ProjectItem project={p} key={p.id} />
-        </Fade>
-      ))
-    );
+    let items = this.state.work.map((p, index) => (
+      <Fade key={p.id}>
+        <ProjectItem project={p.data} />
+      </Fade>
+    ));
     if (isArray(items) && !items.length) items = null;
     const categories = [
       "Travel",
@@ -85,11 +70,22 @@ export default class Work extends Component {
                 ))}
               </ul>
             </aside>
-            {items ? items : <div class="Work__empty">Pas de resulats</div>}
+            {items ? items : <div className="Work__empty">Pas de resulats</div>}
           </section>
           <Contact />
         </Fade>
       </Layout>
     );
   }
+}
+
+export async function getStaticProps({ req }) {
+  const projects = await Client(req).query(
+    Predicates.at("document.type", "project")
+  );
+  return {
+    props: {
+      projects: projects.results,
+    },
+  };
 }

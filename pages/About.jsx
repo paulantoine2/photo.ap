@@ -7,36 +7,36 @@ import Contact from "../components/Contact";
 import Hero from "../components/Hero";
 
 const hero_img = {
-  url: "./about.jpg",
-  alt: "Event",
+  url: "./about.jpeg",
+  alt: "About me",
 };
 
-export default class About extends React.Component {
-  static async getInitialProps(context) {
-    const req = context.req;
-    const about = await Client(req).getSingle("about");
-    return {
-      doc: about,
-    };
-  }
-  render() {
-    return (
-      <Layout>
-        <Hero title="About Me" image={hero_img} />
-        <section className="AboutMe">
-          <div className="row">
-            <Fade>
-              <img src="/profile.jpeg" alt="" className="col-sm-3" />
-            </Fade>
-            <div className="col-sm">
-              <div className="typography__body">
-                {RichText.render(this.props.doc.data.body)}
-              </div>
+export default function About({ about }) {
+  return (
+    <Layout>
+      <Hero title="About Me" image={hero_img} />
+      <section className="AboutMe">
+        <div className="row">
+          <Fade>
+            <img src="/profile.jpeg" alt="" className="col-sm-3" />
+          </Fade>
+          <div className="col-sm">
+            <div className="typography__body">
+              {RichText.render(about.data.body)}
             </div>
           </div>
-        </section>
-        <Contact />
-      </Layout>
-    );
-  }
+        </div>
+      </section>
+      <Contact />
+    </Layout>
+  );
+}
+
+export async function getStaticProps({ req }) {
+  const about = await Client(req).getSingle("about");
+  return {
+    props: {
+      about,
+    },
+  };
 }

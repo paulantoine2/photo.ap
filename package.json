@@ -18,7 +18,7 @@
     "express": "^4.17.1",
     "fontfaceobserver": "^2.1.0",
     "lodash": "^4.17.15",
-    "next": "^9.2.1",
+    "next": "^9.4.2",
     "node-sass": "^4.13.1",
     "prismic-javascript": "^2.7.1",
     "prismic-reactjs": "^1.2.0",

@@ -23,23 +23,7 @@ export default class Index extends React.Component {
     this.handleScroll = this.handleScroll.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
   }
-  static async getInitialProps(context) {
-    const req = context.req;
-    const hero = await Client(req).getSingle("hero");
-    const about = await Client(req).getSingle("about");
-    const project_data = await Client(req).query(
-      Predicates.at("my.project.show_on_home", true),
-      { orderings: "[my.project.title]" }
-    );
 
-    const projects = project_data.results.map((p) => ({ ...p.data, id: p.id }));
-
-    return {
-      hero,
-      projects,
-      about,
-    };
-  }
   componentDidMount() {
     const token =
       "IGQVJVelh2RDRxbWVUMjZArSUM0cVlydjdJeTlMaTJ2ZAUJPTGVPdjFyU3k2YlFWZAEo0YlU2UjAtRHl6MGJ6c3lPUkpVbFF1RGIwTXVZAMFR3c2NMT0tuMnhVX1NidERPbFFDUjd5Ykt3";
@@ -62,10 +46,13 @@ export default class Index extends React.Component {
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("mousemove", this.handleMouseMove);
     this.setState({
-      magicMode: typeof DeviceOrientationEvent.requestPermission === "function",
+      magicMode:
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function",
     });
   }
   activateMotion = () => {
+    if (typeof DeviceOrientationEvent === "undefined") return;
     DeviceOrientationEvent.requestPermission()
       .then((response) => {
         if (response == "granted") {
@@ -175,11 +162,13 @@ export default class Index extends React.Component {
         <section className="Home__work">
           <h2 className="typography__headline">Favorite projects</h2>
           <hr />
+
           {this.props.projects.map((p, index) => (
-            <Fade>
-              <ProjectItem project={p} key={index} />
+            <Fade key={index}>
+              <ProjectItem project={p} />
             </Fade>
           ))}
+
           <Button href="/work">See more projects</Button>
         </section>
         {this.state.medias.length && (
@@ -227,4 +216,24 @@ export default class Index extends React.Component {
       </Layout>
     );
   }
+}
+
+export async function getStaticProps(context) {
+  const req = context.req;
+  const hero = await Client(req).getSingle("hero");
+  const about = await Client(req).getSingle("about");
+  const project_data = await Client(req).query(
+    Predicates.at("my.project.show_on_home", true),
+    { orderings: "[my.project.title]" }
+  );
+
+  const projects = project_data.results.map((p) => ({ ...p.data, id: p.id }));
+
+  return {
+    props: {
+      hero,
+      projects,
+      about,
+    },
+  };
 }

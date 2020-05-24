@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { RichText } from "prismic-reactjs";
 import Link from "next/link";
 
 export default function ProjectItem({ project, fake }) {
-  const [showImg, setshowImg] = useState(false);
   if (fake)
     return (
       <div className="row ProjectItem">
@@ -17,18 +16,12 @@ export default function ProjectItem({ project, fake }) {
         </div>
       </div>
     );
-  const style = { opacity: showImg ? "1" : "0" };
   return (
     <Link href={"/project/" + project.id}>
       <div className="row ProjectItem">
         <div className="col-12 col-sm-6">
-          {project.image.card && (
-            <img
-              onLoad={() => setshowImg(true)}
-              src={project.image.card.url}
-              alt={project.image.card.alt}
-              style={style}
-            />
+          {project.image && project.image.card && (
+            <img src={project.image.card.url} alt={project.image.card.alt} />
           )}
         </div>
         <div className="col-12 col-sm-6">
