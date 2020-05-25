@@ -10,8 +10,8 @@ export default function ActiveLink({ children, className, href }) {
   };
 
   return (
-    <Link href={href}>
-      <a className={classnames(classNames)}>{children}</a>
-    </Link>
+    <a href={href} className={classnames(classNames)}>
+      {children}
+    </a>
   );
 }

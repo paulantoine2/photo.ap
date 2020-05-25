@@ -17,25 +17,21 @@ export default function ProjectItem({ project, fake }) {
       </div>
     );
   return (
-    <Link href="/project/[id]" as={"/project/" + project.id}>
-      <a className="row ProjectItem">
-        <div className="col-12 col-sm-6">
-          {project.image && project.image.card && (
-            <img src={project.image.card.url} alt={project.image.card.alt} />
-          )}
+    <a href={"/project/" + project.id} className="row ProjectItem">
+      <div className="col-12 col-sm-6">
+        {project.image && project.image.card && (
+          <img src={project.image.card.url} alt={project.image.card.alt} />
+        )}
+      </div>
+      <div className="col-12 col-sm-6">
+        <div className="typography__eyebrow">
+          {RichText.asText(project.eyebrow)}
         </div>
-        <div className="col-12 col-sm-6">
-          <div className="typography__eyebrow">
-            {RichText.asText(project.eyebrow)}
-          </div>
-          <div className="typography__title">
-            {RichText.asText(project.title)}
-          </div>
-          <div className="typography__body">
-            {RichText.render(project.body)}
-          </div>
+        <div className="typography__title">
+          {RichText.asText(project.title)}
         </div>
-      </a>
-    </Link>
+        <div className="typography__body">{RichText.render(project.body)}</div>
+      </div>
+    </a>
   );
 }

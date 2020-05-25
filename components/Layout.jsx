@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Menu from "./Menu";
-import Fonts from "../helpers/Fonts";
 import { MdClose, MdMenu } from "react-icons/md";
 import classnames from "classnames";
 import { FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import Button from "./Button";
-import Link from "next/link";
+import { Head } from "next/document";
 
 export default class Layout extends Component {
   constructor(props) {
@@ -18,7 +17,7 @@ export default class Layout extends Component {
     this.handleScroll = this.handleScroll.bind(this);
   }
   componentDidMount() {
-    Fonts();
+    document.getElementById("main-container").style.visibility = "visible";
     window.addEventListener("scroll", this.handleScroll);
   }
   componentWillUnmount() {
@@ -36,10 +35,14 @@ export default class Layout extends Component {
   render() {
     const { menuOpen } = this.state;
     return (
-      <div className={classnames({ scroll: this.state.scroll })}>
-        <Link href="/">
+      <div
+        id="main-container"
+        style={{ visibility: "hidden" }}
+        className={classnames({ scroll: this.state.scroll })}
+      >
+        <a href="/">
           <img src="/logo.svg" alt="Logo" className="TopLogo" />
-        </Link>
+        </a>
 
         <header>
           <Button

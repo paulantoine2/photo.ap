@@ -8,6 +8,7 @@ import { RichText } from "prismic-reactjs";
 
 import Fade from "react-reveal/Fade";
 import ProjectItem from "../components/ProjectItem";
+import Link from "next/link";
 
 export default class Index extends React.Component {
   constructor(props) {
