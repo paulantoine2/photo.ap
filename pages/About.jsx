@@ -6,24 +6,19 @@ import { Client } from "../prismic-configuration";
 import Contact from "../components/Contact";
 import Hero from "../components/Hero";
 
-const hero_img = {
-  url: "./about.jpeg",
-  alt: "About me",
-};
-
 export default function About({ about }) {
   return (
-    <Layout>
-      <Hero title="About Me" image={hero_img} />
+    <Layout className="AboutPage">
       <section className="AboutMe">
-        <div className="row">
-          <Fade>
+        <Fade>
+          <div className="AboutMe__block">
             <img src="/profile.jpeg" alt="" className="col-sm-3" />
-          </Fade>
-          <div className="col-sm">
-            <div className="typography__body">
-              {RichText.render(about.data.body)}
-            </div>
+          </div>
+        </Fade>
+        <div className="AboutMe__block">
+          <h1 className="typography__headline">About Me</h1>
+          <div className="typography__body">
+            {RichText.render(about.data.body)}
           </div>
         </div>
       </section>

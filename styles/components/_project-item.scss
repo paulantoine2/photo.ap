@@ -1,62 +1,119 @@
-.ProjectItem {
-  margin: 50px 16px;
-  @include mq(576px, max) {
-    margin: 25px 16px;
-    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px;
-    padding-bottom: 16px;
-  }
-  img,
-  .loading-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    @include mq(576px, max) {
-      height: 50vw;
-    }
-  }
+// .ProjectItem {
+//   margin: 50px 16px;
+//   // box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
+//   // border: solid 1px $gray;
+//   text-align: center;
+//   @include mq(576px, max) {
+//     margin: 25px 16px;
 
+//     padding-bottom: 16px;
+//   }
+//   img,
+//   .loading-img {
+//     width: 100%;
+//     height: 250px;
+//     object-fit: cover;
+//     @include mq(576px, max) {
+//       height: 50vw;
+//     }
+//   }
+
+//   img {
+//     background-color: $gray;
+//   }
+//   transition: all 0.2s ease;
+//   cursor: pointer;
+//   // box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
+//   outline: solid 1px transparent;
+//   &:hover {
+//     box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px;
+//   }
+//   > div:first-child {
+//     padding: 0;
+//   }
+//   > div:last-child {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     // text-align: center;
+//     @include mq(576px, max) {
+//       padding-top: 16px;
+//       // display: none;
+//     }
+//   }
+//   .typography__title {
+//     margin: 10px 0 30px 0;
+//     @include mq(576px, max) {
+//       margin-bottom: 10px;
+//       margin-top: 5px;
+//     }
+//   }
+//   .typography__body {
+//     p {
+//       max-width: 380px;
+//     }
+//   }
+//   .Button {
+//     background-color: transparent;
+//     border: solid 2px $gray;
+//     color: $gray;
+//     margin-top: 16px;
+//   }
+// }
+
+.ProjectItem {
+  width: 50%;
+  display: block;
+  position: relative;
+  padding: 10px;
+  @include mq(600px, max) {
+    width: 100%;
+  }
   img {
-    background-color: $gray;
+    width: 100%;
+    height: auto;
   }
-  transition: all 0.2s ease;
-  cursor: pointer;
-  // box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
-  outline: solid 1px transparent;
-  &:hover {
-    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px;
-  }
-  > div:first-child {
-    padding: 0;
-  }
-  > div:last-child {
+  .hover {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    // background: rgba(0, 0, 0, 0.3);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
-    @include mq(576px, max) {
-      padding-top: 16px;
-      // display: none;
+    transition: all 0.2s ease;
+    padding: 0 50px;
+    .typography__body,
+    .typography__title {
+      color: $white;
     }
-  }
-  .typography__title {
-    margin: 10px 0 30px 0;
-    @include mq(576px, max) {
-      margin-bottom: 0;
+    .typography__title {
+      // margin-bottom: 30px;
+      font-size: 5em;
+      text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 20px;
+      @include mq(600px, max) {
+        font-size: 2.4em;
+        margin-bottom: 0;
+      }
     }
-  }
-  .typography__body {
-    p {
-      max-width: 380px;
-    }
-    @include mq(576px, max) {
+    .typography__body {
       display: none;
+      max-width: 400px;
+      font-size: 2em;
+      p {
+        text-shadow: rgba(0, 0, 0, 0.4) 1px 1px 20px;
+      }
+      @include mq(600px, max) {
+        display: none;
+      }
     }
   }
-  .Button {
-    background-color: transparent;
-    border: solid 2px $gray;
-    color: $gray;
-    margin-top: 16px;
+  &:hover .hover {
+    opacity: 0.7;
   }
 }

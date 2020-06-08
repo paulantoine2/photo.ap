@@ -31,5 +31,6 @@
   }
   @include mq(600px, max) {
     height: 40px;
+    font-size: 1.2em;
   }
 }

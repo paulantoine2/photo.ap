@@ -1,15 +1,35 @@
 .AboutMe {
-  @include mq(600px, min) {
-    margin: 100px auto;
+  margin-bottom: 10px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+  @include mq(600px, max) {
+    flex-direction: column;
   }
-  margin-bottom: 50px;
+  &__block {
+    padding: 10px;
+    &:first-child {
+      width: 30%;
+      @include mq(600px, max) {
+        width: 100%;
+      }
+    }
+    &:last-child {
+      width: 70%;
+      background: linear-gradient(to bottom, $light, $white);
+      margin: 10px;
+      padding: 50px;
+      @include mq(600px, max) {
+        padding: 50px 20px;
+        width: calc(100% - 20px);
+      }
+    }
+  }
   img {
     object-fit: cover;
-    max-height: 400px;
-    @include mq(600px, max) {
-      height: 200px;
-      margin: 30px 0;
-    }
+    width: 100%;
+    height: 100%;
   }
   .typography__headline {
     margin-bottom: 30px;

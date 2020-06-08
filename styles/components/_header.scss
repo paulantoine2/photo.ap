@@ -1,23 +1,45 @@
 header {
   width: 100%;
   margin: 0 auto;
-  padding: 1.5em 1em;
+  padding: 1em 1em;
   display: flex;
+  align-items: center;
+  color: $light;
+  background-color: transparent;
   img {
-    height: 80px;
+    height: 30px;
     transition: all 0.2s ease;
+    margin-right: 20px;
   }
   position: fixed;
   top: 0;
   z-index: 5000;
   transition: all 0.3s ease;
+  a svg {
+    display: block;
+    font-size: 24px;
+    margin: 0 10px;
+  }
+  .Menu__items {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    ul {
+      display: flex;
+      flex-direction: row;
+      li {
+        padding: 0 30px;
+      }
+    }
+    @include mq(600px, max) {
+      display: none;
+    }
+  }
+  .Menu__item--open {
+    border-bottom: solid 2px $white;
+  }
 }
-.scroll header {
-  .Button {
-    background-color: $main;
-    border-color: transparent;
-  }
-  img {
-    filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.3));
-  }
+
+header {
+  background-color: $main;
 }

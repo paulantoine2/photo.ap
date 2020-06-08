@@ -8,7 +8,6 @@ import { RichText } from "prismic-reactjs";
 
 import Fade from "react-reveal/Fade";
 import ProjectItem from "../components/ProjectItem";
-import Link from "next/link";
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -109,7 +108,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <Layout className="Home">
         <section className="Home__hero">
           <Fade delay={500}>
             <img
@@ -160,36 +159,43 @@ export default class Index extends React.Component {
             <FaMagic className="MagicButton" onClick={this.activateMotion} />
           )}
         </section>
-        <section className="Home__work">
-          <h2 className="typography__headline">Favorite projects</h2>
-          <hr />
-
-          {this.props.projects.map((p, index) => (
-            <Fade key={index}>
-              <ProjectItem project={p} />
-            </Fade>
-          ))}
-
-          <Button href="/work">See more projects</Button>
-        </section>
+        <Fade>
+          <section className="Home__work">
+            <div className="Home__work__button">
+              <h2 className="typography__headline">Featured projects</h2>
+              <div className="typography__body">
+                <p>
+                  Browse various projects i've been working on. Here are my
+                  favorites.
+                </p>
+              </div>
+              <Button href="/work">See all projects</Button>
+            </div>
+            {this.props.projects.map((p, index) => (
+              <ProjectItem project={p} key={index} />
+            ))}
+          </section>
+        </Fade>
         {this.state.medias.length && (
           <Fade>
             <section className="Home__instagram">
-              <h2 className="typography__headline">Follow my story</h2>
-              <hr />
-              <div className="typography__body">
-                <p>
-                  Follow me on Instagram to see before/after editing, behind the
-                  scenes and share of inspiring accounts.
-                </p>
-                <br />
+              <div className="Home__instagram__left">
+                <div className="hover">
+                  <h2 className="typography__headline">Follow my story</h2>
+                  <div className="typography__body">
+                    <p>
+                      Follow me on Instagram to see before/after editing, behind
+                      the scenes and share of inspiring accounts.
+                    </p>
+                    <br />
+                  </div>
+                  <Button href="http://instagram.com/paul.ntn/">
+                    <FaInstagram /> paul.ntn
+                  </Button>
+                </div>
               </div>
-
-              <Button href="http://instagram.com/paul.ntn/">
-                <FaInstagram /> paul.ntn
-              </Button>
-              <div className="Home__instagram__wrapper">
-                {this.state.medias.map((media, i) => (
+              <div className="Home__instagram__right">
+                {this.state.medias.slice(0, 6).map((media, i) => (
                   <img src={media} key={i} alt="" />
                 ))}
               </div>
@@ -200,16 +206,19 @@ export default class Index extends React.Component {
         {this.props.about && (
           <Fade>
             <section className="Home__about">
-              <img src="/profile.jpeg" alt="Profile picture" />
-              <h2 className="typography__headline">
-                {RichText.asText(this.props.about.data.title)}
-              </h2>
-              <hr />
-              <div className="edito">
-                <div className="typography__body">
-                  {RichText.render(this.props.about.data.body_condensed)}
+              <div className="Home__about__left">
+                <img src="/profile.jpeg" alt="Profile picture" />
+              </div>
+              <div className="Home__about__right">
+                <h2 className="typography__headline">
+                  {RichText.asText(this.props.about.data.title)}
+                </h2>
+                <div className="edito">
+                  <div className="typography__body">
+                    {RichText.render(this.props.about.data.body_condensed)}
+                  </div>
+                  <Button href="/about">Learn more</Button>
                 </div>
-                <Button href="/about">Learn more</Button>
               </div>
             </section>
           </Fade>

@@ -2,21 +2,21 @@
   min-height: calc(100vh);
 }
 .Site__hero {
-  height: 60vh;
+  height: 200px;
   max-width: none;
-  padding: 0;
-  margin: 0 0 50px 0;
-  background-color: $main;
+  padding: 20px;
+  margin: 50px 0 50px 0;
+  // background-color: $main;
   position: relative;
-  @include mq(600px, max) {
-    height: 40vh;
-    margin: 0;
+  .typography__title {
+    color: $white;
+    margin-bottom: 20px;
   }
   &__bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.7;
+    // opacity: 0.7;
   }
   .container {
     position: absolute;
@@ -32,9 +32,6 @@
     padding-top: 50px;
     text-align: center;
     text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 10px;
-  }
-  .typography__headline {
-    color: $white;
   }
   .typography__body {
     line-height: 1.5;
@@ -56,5 +53,6 @@
     bottom: 30px;
     color: $white;
     z-index: 3000;
+    font-size: 1.8em;
   }
 }

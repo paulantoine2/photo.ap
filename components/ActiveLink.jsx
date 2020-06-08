@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
 import classnames from "classnames";
+import Link from "next/link";
 
 export default function ActiveLink({ children, className, href }) {
   const router = useRouter();
@@ -10,8 +10,8 @@ export default function ActiveLink({ children, className, href }) {
   };
 
   return (
-    <a href={href} className={classnames(classNames)}>
-      {children}
-    </a>
+    <Link href={href}>
+      <a className={classnames(classNames)}>{children}</a>
+    </Link>
   );
 }

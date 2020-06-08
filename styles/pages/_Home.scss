@@ -1,21 +1,14 @@
 .Home {
+  padding-top: 70px;
   &__hero {
-    &:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 150px;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
-    }
-    height: 100vh;
+    height: calc(100vh - 80px);
     @include mq(600px, max) {
       height: 80vh;
     }
+    min-height: 600px;
     padding: 0;
-    max-width: none;
-    margin: 0;
+    max-width: calc(100vw - 40px);
+    margin: 0 20px;
     position: relative;
     perspective: 8px;
     perspective-origin: 0%;
@@ -30,9 +23,9 @@
     }
     .typography__headline {
       color: $white;
+      text-align: center;
       @include mq(600px, max) {
-        font-size: 2.5em;
-        text-align: center;
+        font-size: 3em;
       }
     }
     &__bg {
@@ -59,9 +52,10 @@
         align-items: center;
         justify-content: center;
         margin-top: -170px;
-        @include mq(600px, max) {
-          margin-top: -33vw;
-        }
+        padding: 0 30px;
+        // @include mq(600px, max) {
+        //   margin-top: -33vw;
+        // }
       }
       &.layer_2 {
         animation: zoomOut2 1.5s forwards;
@@ -162,105 +156,140 @@
     }
     legend {
       position: absolute;
-      left: 30px;
-      bottom: 30px;
+      left: 10px;
+      bottom: 10px;
       color: $white;
       z-index: 3000;
+      font-size: 1.8em;
     }
   }
   &__work {
-    padding: 150px 0;
+    padding: 0 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    @include mq(600px, max) {
-      padding: 50px 0;
-    }
-    .Button {
-      margin-top: 25px;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    max-width: none;
+    margin: 10px 0 0 0;
+    &__button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: calc(50% - 20px);
+      background: linear-gradient(to top, $light, $white);
+      margin: 10px;
+      text-align: center;
+      .typography__body {
+        max-width: 500px;
+        margin: 20px;
+      }
+      @include mq(600px, max) {
+        width: 100%;
+        // height: 50vw;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
     }
   }
   &__instagram {
-    padding: 50px 0 0 0;
+    margin: 0px 0;
     max-width: none;
-    text-align: center;
+    padding: 0 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding-top: 50px;
+    &__left {
+      width: 50%;
+      height: calc(33.33vw);
+      padding: 10px;
+      position: relative;
+
       img {
-        width: 50vw;
-        height: 50vw;
-        @include mq(600px, min) {
-          width: 12.5vw;
-          height: 12.5vw;
-        }
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        // margin: 10px;
+      }
+      .hover {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        left: 10px;
+        right: 10px;
+        top: 10px;
+        bottom: 10px;
+        text-align: center;
+        color: $main;
+        background: linear-gradient(to left, $light, $white);
+        .typography__body {
+          max-width: 500px;
+          margin: 20px;
+          color: $main;
+        }
       }
     }
-    hr {
-      width: 100%;
-      max-width: 1000px;
+    &__right {
+      width: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      img {
+        width: calc(33.33% - 20px);
+        height: calc(16.665vw - 20px);
+        object-fit: cover;
+        margin: 10px;
+        @include mq(600px, max) {
+          height: calc(33.33vw - 30px);
+        }
+      }
     }
-    .Button {
-      display: inline-block;
+    @include mq(600px, max) {
+      flex-direction: column;
+      &__left {
+        height: 350px;
+      }
+      &__left,
+      &__right {
+        width: 100%;
+      }
     }
   }
   &__about {
-    margin: 150px auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    // align-items: center;
+    // justify-content: center;
     text-align: center;
+    &__left {
+      width: 30%;
+      padding: 10px;
+    }
+    &__right {
+      background: linear-gradient(to bottom, $light, $white);
+      width: 70%;
+      margin: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    margin: 0 10px;
+    max-width: none;
+    width: auto;
     img {
       object-fit: cover;
-      margin-bottom: 30px;
-      height: 200px;
-      width: 200px;
-      border-radius: 100px;
-    }
-    hr {
+      height: 100%;
       width: 100%;
-      max-width: 500px;
     }
     .typography__body {
-      margin: 0 auto 30px auto;
-      width: 100%;
       max-width: 500px;
+      margin: 20px;
+      color: $main;
     }
   }
-  &__work,
-  &__instagram,
-  &__about {
-    .typography__headline {
-      align-self: center;
-      background-color: #fff;
-      z-index: 1;
-      padding: 0 20px;
-    }
-  }
-}
-
-.button-wrapper {
-  display: flex;
-  justify-content: center;
-  &-top {
-    @include mq(600px, min) {
-      display: none;
-    }
-    position: absolute;
-    top: 100px;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    .Button {
-      width: 60%;
+  @include mq(600px, min) {
+    section:not(:first-child) {
+      margin-top: 200px;
+      margin-bottom: 200px;
     }
   }
 }

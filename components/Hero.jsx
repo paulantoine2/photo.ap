@@ -17,7 +17,7 @@ export default function Hero({
       <section className={cn("Site__hero", className)}>
         <div className="container">
           <Fade delay={500} bottom>
-            <h1 className="typography__headline typography__headline__elevated">
+            <h1 className="typography__title typography__title__elevated">
               {project ? RichText.asText(project.title) : title}
             </h1>
             <div className="typography__body ">
