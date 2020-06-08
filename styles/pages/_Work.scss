@@ -44,18 +44,20 @@
 
     overflow: scroll;
     // background-color: $light;
-    background: linear-gradient(to top, $light, $white);
+    background: $white;
     ul {
       display: flex;
       flex-direction: row;
     }
     li {
-      padding: 10px 20px;
+      padding: 10px 30px;
       color: $main;
       border-right: solid 1px $white;
       cursor: pointer;
       white-space: nowrap;
-      font-size: 1.3em;
+      font-size: 1.2em;
+      // font-weight: 900;
+      transition: all 0.2s ease;
       &:hover,
       &.active {
         background-color: $main;

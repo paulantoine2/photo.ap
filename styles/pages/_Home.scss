@@ -161,6 +161,9 @@
       color: $white;
       z-index: 3000;
       font-size: 1.8em;
+      @include mq(600px, max) {
+        font-size: 1.4em;
+      }
     }
   }
   &__work {

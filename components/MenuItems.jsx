@@ -6,7 +6,7 @@ export default function MenuItems() {
     <nav className="Menu__items">
       <ul>
         <li>
-          <ActiveLink className="typography__eyebrow Menu__item " href="/">
+          <ActiveLink className="typography__eyebrow Menu__item" href="/">
             Home
           </ActiveLink>
         </li>

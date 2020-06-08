@@ -17,7 +17,7 @@ export default function ProjectItem({ project, fake }) {
       </div>
     );
   return (
-    <Link href={"/project/" + project.id}>
+    <Link href="/project/[id]" as={"/project/" + project.id}>
       <a className="ProjectItem">
         <div>
           {project.image && project.image.card && (

@@ -1,15 +1,17 @@
 header {
   width: 100%;
   margin: 0 auto;
-  padding: 1em 1em;
   display: flex;
   align-items: center;
-  color: $light;
+  color: $main;
   background-color: transparent;
+  @include mq(600px, max) {
+    height: 50px;
+  }
   img {
     height: 30px;
     transition: all 0.2s ease;
-    margin-right: 20px;
+    margin: 0 20px;
   }
   position: fixed;
   top: 0;
@@ -27,19 +29,24 @@ header {
     ul {
       display: flex;
       flex-direction: row;
-      li {
-        padding: 0 30px;
-      }
     }
     @include mq(600px, max) {
       display: none;
     }
   }
-  .Menu__item--open {
-    border-bottom: solid 2px $white;
+  .Menu__item {
+    display: block;
+    padding: 14.5px 30px;
+    border-top: solid 3px transparent;
+    border-bottom: solid 3px transparent;
+    transition: all 0.2s ease;
+  }
+  .Menu__item--open,
+  .Menu__item:hover {
+    border-top: solid 3px $main;
   }
 }
 
 header {
-  background-color: $main;
+  background-color: $white;
 }
